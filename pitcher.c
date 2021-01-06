@@ -125,8 +125,8 @@ void EXTI9_5_IRQHandler(void) {
 
 void GPIO_init_AF(){
 //TODO: Initial GPIO pin as alternate function for buzzer. You can choose to use C or assembly to finish this function.
-	//GPIOA->MODER = (GPIOA->MODER & 0xfffff3ff) | 0x00000800; //set PA5 as AF mode
-	//GPIOA->OTYPER =(GPIOA->OTYPER& 0XFFFFFFDF);
+	GPIOA->MODER = (GPIOA->MODER & 0xfffff3ff) | 0x00000800; //set PA5 as AF mode
+	GPIOA->OTYPER =(GPIOA->OTYPER& 0XFFFFFFDF);
 	GPIOA->AFR[0] |= 1<<20; //set PA5 as AF1, which is TIM2_CH1
 }
 
